@@ -54,40 +54,100 @@ variable type: numerical
 
 8. y_test.txt: a tab separated file that describes the feature description related to each observation from the X_test.txt file
 
-## DESCRIPTION OF EACH VARIABLE
+## VARIABLES DESCRIPTION
 
-subject.test = reads the subject's ID of the testing set
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
-subject.train = reads the subject's ID of the training set
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
 
-set.test = reads the feature values of the testing set
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
 
-set.train = reads the feature values of the training set
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-testing.df = used for binding both subject.test and set.test in a data frame 
+tBodyAcc-XYZ
 
-testing.m = a matrix used for dealing with the repeated feature values of the testing.df data frame
+tGravityAcc-XYZ
 
-testing.conv = used to compute the column means of repeated feature values
+tBodyAccJerk-XYZ
 
-testing.df = numerical and labeled data frame obtained from testing.conv
+tBodyGyro-XYZ
 
-testing.df.melt = melted data frame (feature column variables are converted to rows) 
+tBodyGyroJerk-XYZ
 
-training.df = used for binding both subject.train and set.train in a data frame 
+tBodyAccMag
 
-training.m = a matrix used for dealing with the repeated feature values of the training.df data frame
+tGravityAccMag
 
-training.conv = used to compute the column means of repeated feature values
+tBodyAccJerkMag
 
-training.df = numerical and labeled data frame obtained from training.conv
+tBodyGyroMag
 
-training.df.melt = melted data frame (feature column variables are converted to rows) 
+tBodyGyroJerkMag
 
-merged.data = merged data frame with training.df.melt and testing.df.melt
+fBodyAcc-XYZ
 
-merged.data.mean.sd = merged data frame including only features that contain mean and
-standard deviation
+fBodyAccJerk-XYZ
 
-merged.data.mean.sd.tidy = output data frame, grouped by subject and activity and the corresponding average of the each feature
+fBodyGyro-XYZ
+
+fBodyAccMag
+
+fBodyAccJerkMag
+
+fBodyGyroMag
+
+fBodyGyroJerkMag
+
+The set of variables that were estimated from these signals are: 
+
+mean(): Mean value
+
+std(): Standard deviation
+
+mad(): Median absolute deviation 
+
+max(): Largest value in array
+
+min(): Smallest value in array
+
+sma(): Signal magnitude area
+
+energy(): Energy measure. Sum of the squares divided by the number of values. 
+
+iqr(): Interquartile range 
+
+entropy(): Signal entropy
+
+arCoeff(): Autorregresion coefficients with Burg order equal to 4
+
+correlation(): correlation coefficient between two signals
+
+maxInds(): index of the frequency component with largest magnitude
+
+meanFreq(): Weighted average of the frequency components to obtain a mean frequency
+
+skewness(): skewness of the frequency domain signal 
+
+kurtosis(): kurtosis of the frequency domain signal 
+
+bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.
+
+angle(): Angle between to vectors.
+
+
+Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
+
+gravityMean
+
+tBodyAccMean
+
+tBodyAccJerkMean
+
+tBodyGyroMean
+
+tBodyGyroJerkMean
+
+The complete list of variables of each feature vector is available in 'features.txt'
+
 
